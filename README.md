@@ -93,9 +93,19 @@ Ruta | Método HTTP | Utilidad
 /average | GET | Obtener el promedio de nota de los Student en un curso enviado como Path Param.
 
 # End Points
-Ruta completa | Método HTTP | Parámetros | Respuesta 
-------------- | ----------- | ---------- | ---------
-http://localhost:3000/students | GET | Ninuno | ``` JSON 
+
+## http://localhost:3000/students 
+
+### Método HTTP 
+GET
+
+### Parámetros
+Ninguno
+
+### Respuesta
+
+``` JSON
 [
-    { Student }
-]````
+    {studentModel}
+]
+```
