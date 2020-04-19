@@ -1,0 +1,14 @@
+{
+  "name": "customer-service",
+  "version": "1.0.0",
+  "description": "Example API using Node.js, express, mongoDB and docker for windows",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andres Ruiz",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
