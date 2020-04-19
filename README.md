@@ -104,8 +104,187 @@ Ninguno
 
 ### Respuesta
 
-``` JSON
+``` js
 [
-    {studentModel}
+    {
+        "_id": "string",
+        "firstName": "string",
+        "lastName": "string",
+        "email": "string",
+        "cel": "string",
+        "address": "string",
+        "course": 0,
+        "grade": 1,
+        "__v": 0
+    }
 ]
+```
+
+## http://localhost:3000/students 
+
+### Método HTTP 
+POST
+
+### Parámetros
+En el body de la péticion:
+``` js{
+    "firstName": "string",
+    "lastName": "string",
+    "email": "string",
+    "cel": "string",
+    "address": "string",
+    "course": 0,
+    "grade": 1
+}
+```
+### Respuesta
+
+``` js
+{
+    "firstName": "string",
+    "lastName": "string",
+    "email": "string",
+    "cel": "string",
+    "address": "string",
+    "course": 0,
+    "grade": 1
+}
+```
+
+## http://localhost:3000/students 
+
+### Método HTTP 
+PUT
+
+### Parámetros
+En el body de la péticion:
+``` js {
+    "filters": {
+        "firstName": "string",
+        "lastName": "string",
+        "email": "string",
+        "cel": "string",
+        "address": "string",
+        "course": 0,
+        "grade": 1
+    }, student: {
+        "firstName": "string",
+        "lastName": "string",
+        "email": "string",
+        "cel": "string",
+        "address": "string",
+        "course": 0,
+        "grade": 1
+    }
+}
+```
+Donde en filetr cualquier valor puede ser omitido y en student, valor que se omita indica que no se actualizará dicho campo. 
+
+### Respuesta
+
+``` js
+{
+    "modified": 0
+}
+```
+
+## http://localhost:3000/students/{studentID}
+
+### Método HTTP 
+GET
+
+### Parámetros
+En la URL se recibe el identificador de un Student.
+
+### Respuesta
+
+``` js
+{
+    "_id": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "email": "string",
+    "cel": "string",
+    "address": "string",
+    "course": 0,
+    "grade": 1,
+    "__v": 0
+}
+```
+
+## http://localhost:3000/students/{studentID}
+
+### Método HTTP 
+PUT
+
+### Parámetros
+En la URL se recibe el identificador de un Student y en el body:
+``` js
+{
+    "firstName": "string",
+    "lastName": "string",
+    "email": "string",
+    "cel": "string",
+    "address": "string",
+    "course": 0,
+    "grade": 1,
+}
+```
+Donde cada campo omitido indica que no se actualizará.
+
+### Respuesta
+
+``` js
+{
+    "_id": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "email": "string",
+    "cel": "string",
+    "address": "string",
+    "course": 0,
+    "grade": 1,
+    "__v": 0
+}
+```
+
+## http://localhost:3000/students/{studentID}
+
+### Método HTTP 
+DELETE
+
+### Parámetros
+En la URL se recibe el identificador de un Student.
+
+### Respuesta
+
+``` js
+{
+    "_id": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "email": "string",
+    "cel": "string",
+    "address": "string",
+    "course": 0,
+    "grade": 1,
+    "__v": 0
+}
+```
+
+## http://localhost:3000/students/average?course=?
+
+### Método HTTP 
+GET
+
+### Parámetros
+En la URL se recibe por query param el número de un curso
+
+### Respuesta
+
+``` js
+{
+    "num_student": 0,
+    "average": 0.0
+}
 ```
