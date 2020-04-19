@@ -127,7 +127,8 @@ POST
 
 ### Parámetros
 En el body de la péticion:
-``` js{
+``` js
+{
     "firstName": "string",
     "lastName": "string",
     "email": "string",
@@ -141,13 +142,15 @@ En el body de la péticion:
 
 ``` js
 {
+    "_id": "string",
     "firstName": "string",
     "lastName": "string",
     "email": "string",
     "cel": "string",
     "address": "string",
     "course": 0,
-    "grade": 1
+    "grade": 1,
+    "__v": 0
 }
 ```
 
@@ -158,7 +161,8 @@ PUT
 
 ### Parámetros
 En el body de la péticion:
-``` js {
+``` js
+{
     "filters": {
         "firstName": "string",
         "lastName": "string",
@@ -178,7 +182,7 @@ En el body de la péticion:
     }
 }
 ```
-Donde en filetr cualquier valor puede ser omitido y en student, valor que se omita indica que no se actualizará dicho campo. 
+Donde en filters cualquier valor puede ser omitido y en student, valor que se omita indica que no se actualizará dicho campo. 
 
 ### Respuesta
 
