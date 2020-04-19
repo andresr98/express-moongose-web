@@ -7,7 +7,7 @@ Run `npm install` to install external dependencies, later run `cd customer-seriv
 
 # Documentación
 
-## Modulos
+## Modulo
 
 Se genera dentro de la carpeta modules, la subcarpeta `student`. Se sigue la convención de trabajar por capas con Node.js y se genera el archivo `student.module.js` donde se exportan las rutas a los archivos necesarios para quee funcione el componente.
 
@@ -59,7 +59,43 @@ Función | Utilidad
 createStudent | Crear un nuevo registro de student en la BD.
 getAllStudents | Obtener una colección de todos los Student en la BD.
 getStudentById | Obtener un Student de la BD por su identificador.
-updateStudentById | Actualizar un Student de la BD por su identificador 
-deleteStudentById | Eliminar un Student de la BD por su identificador
-updateStudents | Actualizar todos los Student que cumplan un críterio y los campos enviados por parámetros 
-getAverage | Obtener el promedio de nota de los Student asociados a un curso. 
+updateStudentById | Actualizar un Student de la BD por su identificador. 
+deleteStudentById | Eliminar un Student de la BD por su identificador.
+updateStudents | Actualizar todos los Student que cumplan un críterio y los campos enviados por parámetros. 
+getAverage | Obtener el promedio de nota de los Student asociados a un curso.
+
+## Middleware
+
+La siguiente capa a desarrolar es la del middleware para tomar la petición y convertirla en los parámetros que necesita la capa de servicio. Dicho middleware es construido en el archivo `student.middleware.js`, donde se exponen las siguientes:
+
+Función | Utilidad
+-------------- | ---------
+createStudent | Tomar de la petición el body y enviarlo al servicio para crear un nuevo Student.
+getAllStudents | Invocar la capa de servicio para obtener los Student.
+getStudentById | Tomar el Identificador pasado como Path param en la url y enviarlo al servicio para obtener un Student.
+updateStudentById |  Tomar el Identificador pasado como Path param en la url y el body de la petición para invocar el servicio pasando como parámetro el id y los campos a actualizar.
+deleteStudentById | Tomar el Identificador pasado como Path param en la url e invocar el servicio para borrar un Student.
+updateStudents | Tomar los objetos filters y student del body de la petición y pasarlos al servicio como filters y campos actualizar respectivamente.
+getAverage | Tomar el número del curso pasado como Query param, invocar el servicio para obtener los Student en dicho curso, iterar en los registros y retornar el promedio.
+
+## Controller
+
+Finalmente se genera la capa controladora, donde se dirigen las peticiones según la necesidad del cliente. Se implementa la lógica en el archivo `student.controller.js` según la siguiente tabla:
+
+Ruta | Método HTTP | Utilidad 
+---- | ----------- | --------
+/ | GET | Obtener todos los Student.
+/ | POST | Crear un nuevo Student.
+/ | PUT | Actualizar varios Student según filtros.
+/:studentId | GET | Obtener un Student por su identificador.
+/:studentId | PUT | Actualizar un Student por su identificador.
+/:studentId | DELETE | Eliminar un Student por su identificador.
+/average | GET | Obtener el promedio de nota de los Student en un curso enviado como Path Param.
+
+# End Points
+Ruta completa | Método HTTP | Parámetros | Respuesta 
+------------- | ----------- | ---------- | ---------
+http://localhost:3000/students | GET | Ninuno | ``` JSON 
+[
+    { Student }
+]````
